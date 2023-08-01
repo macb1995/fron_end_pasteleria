@@ -7,9 +7,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">INICIO</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               PASTELES
@@ -17,6 +14,15 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><router-link class="dropdown-item" to="/">Lista de Pasteles</router-link></li>
               <li><router-link class="dropdown-item" to="/createE">Registrar uno nuevo</router-link></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              INGREDIENTES
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><router-link class="dropdown-item" to="/listI">Lista de Ingredientes</router-link></li>
+              <li><router-link class="dropdown-item" to="/createI">Registrar uno nuevo</router-link></li>
             </ul>
           </li>
         </ul>

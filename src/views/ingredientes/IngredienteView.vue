@@ -3,16 +3,16 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-header bg-dark text-white text-center">
-          Detalle del Pastel
+          Detalle del Ingrediente
         </div>
         <div class="card-body">
           <div class="input-group mb-3">
-            <router-link :to="{path:'/'}" class="btn btn-info">
+            <router-link :to="{path:'/listI'}" class="btn btn-info">
               <i class="fa-solid fa-arrow-left">  Regresar a Lista</i>
             </router-link>
           </div>
             <div class="input-group mb-3">
-              <span class="input-group-text">Nombre del Pastel:</span>
+              <span class="input-group-text">Nombre del Ingrediente:</span>
               <label type="text" v-text="nombre" id="nombre" required maxlength="50" class="form-control"></label>
             </div>
             <div class="input-group mb-3">
@@ -20,12 +20,8 @@
               <label type="text" v-text="descripcion" id="descripcion" required maxlength="50" class="form-control"></label>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text">Creado por:</span>
-              <label type="text" v-text="creador" id="creador" required maxlength="50" class="form-control"></label>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text">Fecha de Creación:</span>
-              <label type="date" v-text="f_creado" id="f_creado" class="form-control"></label>
+              <span class="input-group-text">Fecha de Ingreso:</span>
+              <label type="date" v-text="f_ingreso" id="f_ingreso" class="form-control"></label>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Fecha de Vencimiento:</span>
@@ -38,7 +34,7 @@
 </template>
 
 <script>
-import { mostrarAlerta, enviarSolicitud } from '../funciones';
+import { mostrarAlerta, enviarSolicitud } from '/laragon/www/cakefactory2/src/funcionesIng'
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 
@@ -48,10 +44,9 @@ export default{
       id:0,
       nombre:'',
       descripcion:'',
-      creador:'',
-      f_creado:'',
+      f_ingreso:'',
       f_vencimiento:'',
-      url:'http://apibackend.test/api/v1/pastels',
+      url:'http://apibackend.test/api/v1/ingredientes',
       cargando:false
     }
   },
@@ -59,22 +54,19 @@ export default{
     const route = useRoute();
     this.id = route.params.id;
     this.url += '/'+this.id;
-    this.getPastel();
+    this.getIngrediente();
   },
   methods:{
-    getPastel(){
+    getIngrediente(){
       axios.get(this.url).then(
         res=>{
           this.nombre = res.data.data.nombre;
           this.descripcion = res.data.data.descripcion;
-          this.creador = res.data.data.creador;
-          this.f_creado = res.data.data.f_creado;
+          this.f_ingreso = res.data.data.f_ingreso;
           this.f_vencimiento = res.data.data.f_vencimiento;
         }
       );
-    },
+    }
   }
 }
 </script>
-
-  

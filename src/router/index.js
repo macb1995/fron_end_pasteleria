@@ -3,6 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import PastelNew from '../views/PastelNew.vue'
 import PastelEdit from '../views/PastelEdit.vue'
 import PastelView from '../views/PastelView.vue'
+import IngredienteList from '../views/ingredientes/IngredienteList.vue'
+import IngredienteNew from '../views/ingredientes/IngredienteNew.vue'
+import IngredienteEdit from '../views/ingredientes/IngredienteEdit.vue'
+import IngredienteView from '../views/ingredientes/IngredienteView.vue'
 
 const routes = [
   {
@@ -24,6 +28,26 @@ const routes = [
     path: '/viewE/:id',
     name: 'viewE',
     component: PastelView
+  },
+  {
+    path: '/listI',
+    name: 'listI',
+    component: IngredienteList
+  },
+  {
+    path: '/createI',
+    name: 'createI',
+    component: IngredienteNew
+  },
+  {
+    path: '/editI/:id',
+    name: 'editI',
+    component: IngredienteEdit
+  },
+  {
+    path: '/viewI/:id',
+    name: 'viewI',
+    component: IngredienteView
   }
 ]
 
