@@ -11,7 +11,6 @@
               <th>CREADOR</th>
               <th>FECHA DE CREACIÓN</th>
               <th>VENCIMIENTO</th>
-              <th>ACCIONES PARA LOS REGISTROS</th>
             </tr>
           </thead>
           <tbody class="table-group-divider" id="contenido">
@@ -25,19 +24,6 @@
               <td v-text="est.creador"></td>
               <td v-text="est.f_creado"></td>
               <td v-text="est.f_vencimiento"></td>
-              <td>
-                <router-link :to="{path:'viewE/'+est.id}" class="btn btn-info">
-                  <i class="fa-solid fa-eye"></i>
-                </router-link>
-                &nbsp;
-                <router-link :to="{path:'editE/'+est.id}" class="btn btn-warning">
-                  <i class="fa-solid fa-edit"></i>
-                </router-link>
-                &nbsp;
-                <button class="btn btn-danger" v-on:click="eliminar(est.id,est.nombre)">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -48,7 +34,6 @@
 
 <script>
   import axios from 'axios';
-  import { confirmar } from '../funciones'
 
   export default{
     data(){
@@ -70,10 +55,6 @@
           }
         );
       },
-      eliminar(id,nombre){
-        confirmar('http://apibackend.test/api/v1/pastels/',id,'Eliminar registro','Realmente desea eliminar el registro'+nombre+'?');
-        this.cargando=false;
-      }
     }
   }
 </script>
